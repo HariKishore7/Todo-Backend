@@ -8,11 +8,7 @@ const session_secret = "newton";
 
 const app = express();
 app.use(express.json()); // added body key to req
-app.use(cors({
-    credentials: true,
-    // origin: "http://localhost:8080", //Added 3001 as origin bcoz server is running on 3001
-    origin: "http://localhost:3001"
-}));
+app.use(cors());
 app.use(
   session({
     secret: session_secret,
@@ -21,7 +17,7 @@ app.use(
 ); // adds a property called session to req
 
 // connect
-const db = mongoose.createConnection("mongodb://localhost:27017/TodoApp", {
+const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtontodoapp.lgqhd.mongodb.net/<dbname>?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -155,4 +151,4 @@ app.get('/userinfo', AuthMiddleware, async (req, res) => {
     console.log("Upto here");
 });
 
-app.listen(9999);
+app.listen(process.env.PORT);
