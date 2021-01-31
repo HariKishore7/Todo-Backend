@@ -8,7 +8,11 @@ const session_secret = "newton";
 
 const app = express();
 app.use(express.json()); // added body key to req
-app.use(cors());
+app.use(cors({
+  Credentials: true,
+  origin: "https://todo-frontend-ns.herokuapp.com"
+}
+));
 app.use(
   session({
     secret: session_secret,
