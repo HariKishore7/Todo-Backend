@@ -21,7 +21,7 @@ app.use(
 ); // adds a property called session to req
 
 // connect
-const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtontodoapp.lgqhd.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtontodoapp.lgqhd.mongodb.net/TodoApp?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -153,6 +153,10 @@ app.get('/userinfo', AuthMiddleware, async (req, res) => {
     console.log("user details here",user);
     res.send({ userName : user.userName });
     console.log("Upto here");
+});
+
+app.get("/",async(req,res)=>{
+  res.send("Server is working hari");
 });
 
 app.listen(process.env.PORT);
