@@ -156,7 +156,7 @@ app.get('/userinfo', AuthMiddleware, async (req, res) => {
     console.log("Upto here");
 });
 
-app.get("/",async(req,res)=>{
+app.get("/",(req,res)=>{
   res.send("Server is working hari");
 });
 
