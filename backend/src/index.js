@@ -22,7 +22,7 @@ app.use(
 ); // adds a property called session to req
 
 // connect
-const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtonmongo.x63al.mongodb.net/TodoApp?retryWrites=true&w=majority", {
+const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtonmongo.etqew.mongodb.net/TodoApp?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
