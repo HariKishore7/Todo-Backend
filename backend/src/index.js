@@ -9,19 +9,20 @@ const session_secret = "newton";
 const app = express();
 app.use(express.json()); // added body key to req
 app.use(cors({
-  Credentials: true,
+  credentials: true,
   origin: "https://todo-frontend-ns.herokuapp.com"
 }
 ));
+app.set('trust proxy',1);
 app.use(
   session({
     secret: session_secret,
-    cookie: { maxAge: 1*60*60*1000 }
+    cookie: { maxAge: 1*60*60*1000, sameSite: "none", secure:true }
   })
 ); // adds a property called session to req
 
 // connect
-const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtontodoapp.lgqhd.mongodb.net/TodoApp?retryWrites=true&w=majority", {
+const db = mongoose.createConnection("mongodb+srv://harikishore:harikishore@newtonmongo.x63al.mongodb.net/TodoApp?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
