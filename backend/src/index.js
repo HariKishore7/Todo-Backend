@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json()); // added body key to req
 app.use(cors({
   credentials: true,
-  origin: "https://todo-frontend-ns.herokuapp.com"
+  origin: "https://todo-frontend-ns.herokuapp.com",
 }
 ));
 app.set('trust proxy',1);
